@@ -1,0 +1,74 @@
+
+{
+  "title": "Testing for React Native",
+  "chapters": ["1", "2", "3", "4", "5", "6", "7", "8"],
+  "chaptersById": {
+    "1": {
+      "title": "Intro",
+      "steps": ["Intro1"]
+    },
+    "2": {
+      "title": "Build the app navigation (with React-native-navigation)",
+      "steps": ["nav1"]
+    },
+    "3": {
+      "title": "Adding the app business logic and state management (with Remx)",
+      "steps": ["remx1"]
+    },
+    "4": {
+      "title": "Style the app (with react-native-ui-lib)",
+      "steps": ["style1"]
+    },
+    "5": {
+      "title": "Add e2e tests (with Detox)",
+      "steps": ["e2e1"]
+    },
+    "6": {
+      "title": "Add unit tests (with Jest)",
+      "steps": ["jest1"]
+    },
+    "7": {
+      "title": "Adding a Native Module",
+      "steps": ["native1"]
+    },
+    "8": {
+      "title": "Performance - Tools and Best Practice",
+      "steps": ["performance1"]
+    }
+  },
+  "stepsById": {
+    "Intro1": {
+      "name": "App.Intro",
+      "type": "md"
+    },
+    "nav1": {
+      "name": "App.Navigation",
+      "type": "md"
+    },
+    "remx1": {
+      "name": "App.Remx",
+      "type": "md"
+    },
+    "style1": {
+      "name": "App.UiLib",
+      "type": "md"
+    },
+    "e2e1": {
+      "name": "App.e2e",
+      "type": "md"
+    },
+    "jest1": {
+      "name": "App.tests",
+      "type": "md"
+    },
+    "native1": {
+      "name": "App.NativeModule",
+      "type": "md"
+    },
+    "performance1": {
+      "name": "App.performance",
+      "type": "md"
+    }
+  },
+  "version": 1
+}
