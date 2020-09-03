@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is the correct way to check the components onPress function?",
+    "questionDescription": "Assume <code>navigateToNextPage</code> works correctly. In the next page there is an element with testId <code>uniqueId2</code>\n<pre><code data-line-start=\"7\" data-line-end=\"9\">&lt;Button <span>test</span>Id=<span>\"uniqueId1\"</span> title=<span>\"Press me\"</span> onPress={() =&gt; navigateToNextPage()}/&gt;</code></pre>",
+    "answers": [
+      "<code>await element(by.id('uniqueId1'))).tap()\nawait expect(element(by.id('uniqueId2'))).toBeVisible();<code/>",
+      {
+        "answer": "<code>await element(by.text('Press me'))).tap()\nawait expect(element(by.id('uniqueId2'))).toBeVisible();<code/>",
+        "onSelectedMessage": "Think what would happen if the text would change."
+      },
+      {
+        "answer": "<code>await element(by.id('uniqueId1'))).tap()\nawait expect(element(by.id('uniqueId1'))).not.toBeVisible();<code/>",
+        "onSelectedMessage": "Incorrect. Think what happens to the visibility of an element after the application crashed."
+      },
+      {
+        "answer": "<code>await expect(element(by.text('Press me'))).tap()).not.toBeVisible();<code/>",
+        "onSelectedMessage": "Incorrect syntax. tap() is async, with no return value. toBeVisible does not work on a promise."
+      }
+    ],
+    "correctAnswerIdx": 0
+  }
+]

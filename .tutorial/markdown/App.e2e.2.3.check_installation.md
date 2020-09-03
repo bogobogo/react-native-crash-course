@@ -1,0 +1,1 @@
+test that checks the install + config ok

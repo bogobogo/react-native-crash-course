@@ -24,26 +24,33 @@ const failMessage = (totalTests, testPassed) =>
 
 const testProcess = spawn("npm", [
   "run",
-  "test",
+  "jest-test",
   "--",
   '--reporters="<rootDir>/.tutorial/tests/my-custom-reporter.js"',
+  "--",
+  '--config="<rootDir>/.tutorial/tests/config.js"',
   "--",
   testPath,
 ]);
 
 testProcess.stdout.on("data", (data) => {
   try {
-    const testData = JSON.parse(data);
-    if (isValidTestData(testData)) {
-      if (isTestSuccessful(testData)) {
-        console.log(successMessage(testData.numTotalTests));
-      } else {
-        console.log(
-          failMessage(testData.numTotalTests, testData.numPassedTests)
-        );
-      }
-    }
-  } catch (e) {}
+    console.log(data.toString());
+    // const testData = Buffer.isBuffer(data)
+    //   ? JSON.parse(data.toString())
+    //   : JSON.parse(data);
+    // if (isValidTestData(testData)) {
+    //   if (isTestSuccessful(testData)) {
+    //     console.log(successMessage(testData.numTotalTests));
+    //   } else {
+    //     console.log(
+    //       failMessage(testData.numTotalTests, testData.numPassedTests)
+    //     );
+    //   }
+    // }
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 testProcess.stderr.on("data", (data) => {
@@ -51,6 +58,6 @@ testProcess.stderr.on("data", (data) => {
 });
 
 testProcess.on("close", (code) => {
-  writeFileSync(join(__dirname, `./tmp/${stepId}.txt`), code);
+  writeFileSync(join(__dirname, `./tmp/${stepId}.txt`), code.toString());
   // console.log(`child process exited with code ${code}`);
 });
